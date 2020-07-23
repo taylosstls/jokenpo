@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #faf6fa;
+  background-color: #241E26;
   font-family: monospace;
 }
 
@@ -23,10 +23,22 @@ body {
 
 h1.title {
   text-align: center;
-  color: #243065;
-  margin: 30px auto;
+  color: #34BFA6;
+  margin: 30px auto 10px;
   font-size: 32px;
   font-weight: 400;
+}
+
+p.description {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #f5f5f5;
+  font-size: 14px;
+}
+
+p.description strong {
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .placar {
@@ -37,6 +49,7 @@ h1.title {
 }
 
 .vs {
+  color: #f5f5f5;
   font-size: 24px;
   font-weight: 100;
   padding: 15px 30px;
@@ -55,11 +68,11 @@ h1.title {
 }
 
 #jogador {
-  background-color: #ee686a;
+  background-color: #F29441;
 }
 
 #computador {
-  background-color: #6aafff;
+  background-color: #34BFA6;
 }
 
 h2.jogador-nome, h2.computador-nome {
@@ -112,7 +125,7 @@ span#jogador-pontos, span#computador-pontos {
 
 #message {
   margin: 20px 0 30px;
-  background-color: #77839f;
+  background-color: #D94E41;
   padding: 15px 30px;
   border-radius: 3px;
   text-align: center;

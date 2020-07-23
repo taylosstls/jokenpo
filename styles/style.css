@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #faf6fa;
+  font-family: monospace;
+}
+
+#principal {
+  max-width: 960px;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+h1.title {
+  text-align: center;
+  color: #243065;
+  margin: 30px auto;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.placar {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vs {
+  font-size: 24px;
+  font-weight: 100;
+  padding: 15px 30px;
+}
+
+#jogador, #computador {
+  color: #fff;
+  flex-grow: 1;
+  padding: 30px 15px 15px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#jogador {
+  background-color: #ee686a;
+}
+
+#computador {
+  background-color: #6aafff;
+}
+
+h2.jogador-nome, h2.computador-nome {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+span#jogador-pontos, span#computador-pontos {
+  font-size: 60px;
+  line-height: 24px;
+}
+
+#jogador-escolha, #computador-escolha {
+  list-style: none;
+  display: flex;
+  margin: 30px 0 0;
+  padding: 0;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.nomes-player {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#jogador-escolha li a, #computador-escolha li a {
+  padding: 10px;
+  opacity: .5;
+  cursor: default;
+  transition: opacity 0.3s;
+}
+
+#jogador-escolha li a {
+  cursor: pointer;
+}
+
+#jogador-escolha li a:hover, #jogador-escolha li a.active, #computador-escolha li a.active {
+  opacity: 1;
+}
+
+#jogador-escolha img, #computador-escolha img {
+  max-width: 50px;
+}
+
+#message {
+  margin: 20px 0 30px;
+  background-color: #77839f;
+  padding: 15px 30px;
+  border-radius: 3px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+}
+
+#message::first-letter {
+  text-transform: capitalize;
+}
+
+@media only screen and (max-width: 650px) {
+  .placar {
+    flex-direction: column;
+  }
+  #jogador, #computador {
+    width: 100%;
+  }
+}

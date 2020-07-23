@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="assets/favicon.ico" />
+  <title>Jokenpô!</title>
+
+  <link href="styles/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="principal">
+    <h1 class="title">Pedra, Papel e Tesoura</h1>
+
+    <div class="placar">
+      <div id="jogador">
+        <div class="nomes-player">
+          <h2 class="jogador-nome">Jogador</h2>
+          <span id="jogador-pontos">0</span>
+        </div>
+        <ul id="jogador-escolha">
+          <li><a id="jogador-escolha-1">
+              <img src="assets/hand-rock.png" alt="Pedra" />
+            </a></li>
+          <li><a id="jogador-escolha-2">
+              <img src="assets/hand-paper.png" alt="Papel" />
+            </a></li>
+          <li><a id="jogador-escolha-3">
+              <img src="assets/hand-scissors.png" alt="Tesoura" />
+            </a></li>
+        </ul>
+      </div>
+      <div class="vs">
+        VS
+      </div>
+      <div id="computador">
+        <div class="nomes-player">
+          <span id="computador-pontos">0</span>
+          <h2 class="computador-nome">Computador</h2>
+        </div>
+        <ul id="computador-escolha">
+          <li><a id="computador-escolha-1">
+              <img src="assets/hand-rock.png" alt="Pedra" />
+            </a></li>
+          <li><a id="computador-escolha-2">
+              <img src="assets/hand-paper.png" alt="Papel" />
+            </a></li>
+          <li><a id="computador-escolha-3">
+              <img src="assets/hand-scissors.png" alt="Tesoura" />
+            </a></li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div id="message">
+      Jogador, escolha uma mão acima...🤞
+    </div>
+  </div>
+
+  <script src="assets/script.js"></script>
+
+</body>
+
+</html>

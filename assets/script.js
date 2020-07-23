@@ -1,10 +1,10 @@
-var jogadorNome;
-var jogadorNomeMaximo = 25;
-var jogadorEscolha = 0;
-var computadorEscolha = 0;
+let jogadorNome;
+let jogadorNomeMaximo = 25;
+let jogadorEscolha = 0;
+let computadorEscolha = 0;
 
-var jogadorPontos = 0;
-var computadorPontos = 0;
+let jogadorPontos = 0;
+let computadorPontos = 0;
 
 // Exibe mensagem
 function mensagem(texto) {
@@ -57,7 +57,7 @@ function calcularEscolha(jogador, computador) {
   }
 }
 
-// Ativar Mão
+// Atilet Mão
 function selecionar(tipo, escolha) {
   document.getElementById(`${tipo}-escolha-${escolha}`).classList.add('active');
 }
@@ -74,16 +74,19 @@ function jogar(escolha) {
   selecionar('computador', computadorEscolha);
 
   // calcular quem ganhou
-  var ganhador = calcularEscolha(jogadorEscolha, computadorEscolha);
+  let ganhador = calcularEscolha(jogadorEscolha, computadorEscolha);
 
-  if (ganhador === 0) {
-    mensagemJogo(`Opora... empatou... 🤷‍♂️`);
-  } else if (ganhador === 1) {
-    mensagemJogo(`Joga mtooo!!! 🎉🎉🎉`);
-    somarPontosJogador();
-  } else if (ganhador === 2) {
-    mensagemJogo(`Vergon da professión!! 🤦‍♂️`);
-    somarPontosComputador();
+  switch (ganhador) {
+    case 1:
+      mensagemJogo(`Joga mtooo!!! 🎉🎉🎉`);
+      somarPontosJogador();
+      break;
+    case 2:
+      mensagemJogo(`Vergon da professión!! 🤦‍♂️`);
+      somarPontosComputador();
+      break;
+    default:
+      mensagemJogo(`Opora... empatou... 🤷‍♂️`);
   }
 
   if (jogadorPontos === 5) {

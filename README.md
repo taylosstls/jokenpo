@@ -1,5 +1,5 @@
 # 🕹 JOKENPO!
-A classic game of ROCK, PAPER or SCISSORS! Whoever scores 5 points first wins!
+A classic game of ROCK, PAPER or SCISSORS made with ES6. Whoever scores 5 points first wins!
 
 To download the game, just click on <code>**↓ Code > Download Zip**</code> 😀
 

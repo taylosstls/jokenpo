@@ -10,7 +10,7 @@ body {
   font-family: monospace;
 }
 
-#principal {
+#App {
   max-width: 960px;
   width: 100%;
   min-height: 100vh;
@@ -41,7 +41,7 @@ p.description strong {
   text-transform: uppercase;
 }
 
-.placar {
+.scoreboard {
   flex-direction: row;
   display: flex;
   align-items: center;
@@ -55,7 +55,7 @@ p.description strong {
   padding: 15px 30px;
 }
 
-#jogador, #computador {
+#player, #computer {
   color: #fff;
   flex-grow: 1;
   padding: 30px 15px 15px;
@@ -67,27 +67,27 @@ p.description strong {
   width: 100%;
 }
 
-#jogador {
+#player {
   background-color: #F29441;
 }
 
-#computador {
+#computer {
   background-color: #34BFA6;
 }
 
-h2.jogador-nome, h2.computador-nome {
+h2.jogador-nome, h2.computer-nome {
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 18px;
   line-height: 24px;
 }
 
-span#jogador-pontos, span#computador-pontos {
+span#player-points, span#computer-points {
   font-size: 60px;
   line-height: 24px;
 }
 
-#jogador-escolha, #computador-escolha {
+#player-choose, #computer-choose {
   list-style: none;
   display: flex;
   margin: 30px 0 0;
@@ -97,29 +97,29 @@ span#jogador-pontos, span#computador-pontos {
   justify-content: center;
 }
 
-.nomes-player {
+.players-name {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-#jogador-escolha li a, #computador-escolha li a {
+#player-choose li a, #computer-choose li a {
   padding: 10px;
   opacity: .5;
   cursor: default;
   transition: opacity 0.3s;
 }
 
-#jogador-escolha li a {
+#player-choose li a {
   cursor: pointer;
 }
 
-#jogador-escolha li a:hover, #jogador-escolha li a.active, #computador-escolha li a.active {
+#player-choose li a:hover, #player-choose li a.active, #computer-choose li a.active {
   opacity: 1;
 }
 
-#jogador-escolha img, #computador-escolha img {
+#player-choose img, #computer-choose img {
   max-width: 50px;
 }
 
@@ -138,10 +138,10 @@ span#jogador-pontos, span#computador-pontos {
 }
 
 @media only screen and (max-width: 650px) {
-  .placar {
+  .scoreboard {
     flex-direction: column;
   }
-  #jogador, #computador {
+  #player, #computer {
     width: 100%;
   }
 }

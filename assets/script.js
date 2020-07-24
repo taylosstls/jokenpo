@@ -1,45 +1,45 @@
-let jogadorNome;
-let jogadorNomeMaximo = 25;
-let jogadorEscolha = 0;
-let computadorEscolha = 0;
+let playerName;
+let playerNameMaximo = 25;
+let playerChoose = 0;
+let computerChoose = 0;
 
-let jogadorPontos = 0;
-let computadorPontos = 0;
+let pointsPlayer = 0;
+let pointsComputer = 0;
 
 // Exibe mensagem
-function mensagem(texto) {
-  if (texto === "" || texto === null || texto === undefined) {
+function mensagem(text) {
+  if (text === "" || text === null || text === undefined) {
     return "Jogador";
   }
-  document.getElementById('message').innerHTML = `${texto}, escolha uma mão acima... 🤞`;
+  document.getElementById('message').innerHTML = `${text}, escolha uma mão acima... 🤞`;
 }
 
-function mensagemJogo(texto) {
-  if (texto === "" || texto === null || texto === undefined) {
+function gameMessage(text) {
+  if (text === "" || text === null || text === undefined) {
     return "Jogador";
   }
-  document.getElementById('message').innerHTML = `${texto}`;
+  document.getElementById('message').innerHTML = `${text}`;
 }
 
-function nomeJogador(texto) {
-  if (texto === "" || texto === null || texto === undefined) {
+function nomeJogador(text) {
+  if (text === "" || text === null || text === undefined) {
     return "Jogador";
   }
-  document.getElementById('jogador').getElementsByClassName('jogador-nome')[0].innerHTML = texto;
+  document.getElementById('jogador').getElementsByClassName('jogador-nome')[0].innerHTML = text;
 }
 
-function somarPontosJogador() {
-  jogadorPontos++;
-  document.getElementById('jogador-pontos').innerHTML = jogadorPontos;
+function SumPointsPlayer() {
+  pointsPlayer++;
+  document.getElementById('jogador-pontos').innerHTML = pointsPlayer;
 }
 
-function somarPontosComputador() {
-  computadorPontos++;
-  document.getElementById('computador-pontos').innerHTML = computadorPontos;
+function sumPointsComputer() {
+  pointsComputer++;
+  document.getElementById('computador-pontos').innerHTML = pointsComputer;
 }
 
 // Sorteia entre dois números
-function sortear(min, max) {
+function sort(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -47,7 +47,7 @@ function sortear(min, max) {
 // 0 = Empate
 // 1 = Jogador
 // 2 = Computador
-function calcularEscolha(jogador, computador) {
+function calculateChoose(jogador, computador) {
   if (jogador === 1 && computador === 1 || jogador === 2 && computador === 2 || jogador === 3 && computador === 3) {
     return 0;
   } else if (jogador === 1 && computador === 3 || jogador === 2 && computador === 1 || jogador === 3 && computador === 2) {
@@ -58,64 +58,68 @@ function calcularEscolha(jogador, computador) {
 }
 
 // Atilet Mão
-function selecionar(tipo, escolha) {
+function selectHand(tipo, escolha) {
   document.getElementById(`${tipo}-escolha-${escolha}`).classList.add('active');
 }
-function deselecionar(tipo, escolha) {
-  document.getElementById(`${tipo}-escolha-${escolha}`).classList.remove('active');
+function deselectHand() {
+  const maos = document.querySelectorAll('li a');
+
+  [].forEach.call(maos, function (el) {
+    el.classList.remove('active');
+  });
+
 }
 
-function jogar(escolha) {
-  jogadorEscolha = escolha;
-  selecionar('jogador', jogadorEscolha);
+function playGame(escolha) {
+  playerChoose = escolha;
+  selectHand('jogador', playerChoose);
 
-  // sortear a jogada do computador
-  computadorEscolha = sortear(1, 3);
-  selecionar('computador', computadorEscolha);
+  // sorteia a jogada do computador
+  computerChoose = sort(1, 3);
+  selectHand('computador', computerChoose);
 
   // calcular quem ganhou
-  let ganhador = calcularEscolha(jogadorEscolha, computadorEscolha);
+  const winner = calculateChoose(playerChoose, computerChoose);
 
-  switch (ganhador) {
+  switch (winner) {
     case 1:
-      mensagemJogo(`Joga mtooo!!! 🎉🎉🎉`);
-      somarPontosJogador();
+      gameMessage(`Joga mtooo!!! 🎉🎉🎉`);
+      SumPointsPlayer();
       break;
     case 2:
-      mensagemJogo(`Vergon da professión!! 🤦‍♂️`);
-      somarPontosComputador();
+      gameMessage(`Vergon da professión!! 🤦‍♂️`);
+      sumPointsComputer();
       break;
     default:
-      mensagemJogo(`Opora... empatou... 🤷‍♂️`);
+      gameMessage(`Opora... empatou... 🤷‍♂️`);
   }
 
-  if (jogadorPontos === 5) {
-    mensagemJogo(`Parabéns!!! Você ganhou! 😁`);
-    jogadorPontos = computadorPontos = 0;
+  if (pointsPlayer === 5) {
+    gameMessage(`Parabéns!!! Você ganhou! 😁`);
+    pointsPlayer = pointsComputer = 0;
 
     setTimeout(
       function pararClick() {
-        document.getElementById('jogador-pontos').innerHTML = jogadorPontos;
-        document.getElementById('computador-pontos').innerHTML = computadorPontos;
-      }, 5000
+        document.getElementById('jogador-pontos').innerHTML = pointsPlayer;
+        document.getElementById('computador-pontos').innerHTML = pointsComputer;
+      }, 3000
     );
 
-  } else if (computadorPontos === 5) {
-    mensagemJogo(`Eu sou inevitável, humano!! Muhuhaha 📱`);
-    jogadorPontos = computadorPontos = 0;
+  } else if (pointsComputer === 5) {
+    gameMessage(`Eu sou inevitável, humano!! Muhuhaha 📱`);
+    pointsPlayer = pointsComputer = 0;
 
     setTimeout(
       function pararClick() {
-        document.getElementById('jogador-pontos').innerHTML = jogadorPontos;
-        document.getElementById('computador-pontos').innerHTML = computadorPontos;
+        document.getElementById('jogador-pontos').innerHTML = pointsPlayer;
+        document.getElementById('computador-pontos').innerHTML = pointsComputer;
       }, 5000
     );
   }
 
   setTimeout(
     function () {
-      deselecionar('computador', computadorEscolha);
-      deselecionar('jogador', jogadorEscolha);
+      deselectHand();
     }, 750
   );
 
@@ -124,21 +128,21 @@ function jogar(escolha) {
 // exibir mão selecionada do usuário
 document.getElementById('jogador-escolha-1')
   .addEventListener('click', function () {
-    jogar(1);
+    playGame(1);
   });
 document.getElementById('jogador-escolha-2')
   .addEventListener('click', function () {
-    jogar(2);
+    playGame(2);
   });
 document.getElementById('jogador-escolha-3')
   .addEventListener('click', function () {
-    jogar(3);
+    playGame(3);
   });
 
 
-while (jogadorNome === "" || jogadorNome === undefined || jogadorNome === null || (jogadorNome !== null && jogadorNome.length > jogadorNomeMaximo)) {
-  jogadorNome = window.prompt('Qual é o seu nome?');
+while (playerName === "" || playerName === undefined || playerName === null || (playerName !== null && playerName.length > playerNameMaximo)) {
+  playerName = window.prompt('Qual é o seu nome?');
 }
 
-mensagem(jogadorNome);
-nomeJogador(jogadorNome);
+mensagem(playerName);
+nomeJogador(playerName);

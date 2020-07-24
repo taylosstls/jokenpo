@@ -73,18 +73,13 @@ function deselectHand() {
 
 }
 
-function playGame(choose) {
+async function playGame(choose) {
   playerChoose = choose;
   selectHand('player', playerChoose);
 
   // sorteia a jogada do computer
   computerChoose = sort(1, 3);
   selectHand('computer', computerChoose);
-
-  if (pointsPlayer === 5 || pointsComputer === 5) {
-    pointsPlayer = pointsComputer = 0;
-    reset;
-  }
 
   // calcular quem ganhou
   const winner = calculateChoose(playerChoose, computerChoose);

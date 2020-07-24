@@ -7,6 +7,7 @@ let pointsPlayer = 0;
 let pointsComputer = 0;
 
 const reset = () => {
+  pointsPlayer = pointsComputer = 0;
   document.getElementById('player-points').innerHTML = pointsPlayer;
   document.getElementById('computer-points').innerHTML = pointsComputer;
 }
@@ -35,11 +36,19 @@ function playerNameInsert(text) {
 
 function SumPointsPlayer() {
   pointsPlayer++;
+  if (pointsPlayer === 5) {
+    gameMessage(`Parabéns!!! Você ganhou! 😁`);
+    setTimeout(reset, 3000);
+  }
   document.getElementById('player-points').innerHTML = pointsPlayer;
 }
 
 function sumPointsComputer() {
   pointsComputer++;
+  if (pointsComputer === 5) {
+    gameMessage(`Eu sou inevitável, humano!! Muhuhaha 📱`);
+    setTimeout(reset, 3000);
+  }
   document.getElementById('computer-points').innerHTML = pointsComputer;
 }
 
@@ -73,41 +82,35 @@ function deselectHand() {
 
 }
 
-async function playGame(choose) {
+function playGame(choose) {
   playerChoose = choose;
-  selectHand('player', playerChoose);
-
   // sorteia a jogada do computer
   computerChoose = sort(1, 3);
-  selectHand('computer', computerChoose);
 
   // calcular quem ganhou
   const winner = calculateChoose(playerChoose, computerChoose);
 
   switch (winner) {
     case 1:
-      gameMessage(`Joga mtooo!!! 🎉🎉🎉`);
-      SumPointsPlayer();
+      if (pointsComputer < 5 && pointsPlayer !== 5) {
+        selectHand('player', playerChoose);
+        selectHand('computer', computerChoose);
+
+        gameMessage(`Joga mtooo!!! 🎉🎉🎉`);
+        SumPointsPlayer();
+      }
       break;
     case 2:
-      gameMessage(`Vergon da professión!! 🤦‍♂️`);
-      sumPointsComputer();
+      if (pointsPlayer < 5 && pointsComputer !== 5) {
+        selectHand('player', playerChoose);
+        selectHand('computer', computerChoose);
+
+        gameMessage(`Vergon da professión!! 🤦‍♂️`);
+        sumPointsComputer();
+      }
       break;
     default:
-      gameMessage(`Opora... empatou... 🤷‍♂️`);
-  }
-
-  if (pointsPlayer === 5) {
-    gameMessage(`Parabéns!!! Você ganhou! 😁`);
-    pointsPlayer = pointsComputer = 0;
-
-    setTimeout(reset, 1000);
-
-  } else if (pointsComputer === 5) {
-    gameMessage(`Eu sou inevitável, humano!! Muhuhaha 📱`);
-    pointsPlayer = pointsComputer = 0;
-
-    setTimeout(reset, 1000);
+      (pointsComputer < 5 && pointsPlayer !== 5 || pointsPlayer < 5 && pointsComputer !== 5) && gameMessage(`Opora... empatou... 🤷‍♂️`);
   }
 
   setTimeout(() => deselectHand(), 750);

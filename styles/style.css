@@ -75,10 +75,10 @@ p.description strong {
   background-color: #34BFA6;
 }
 
-h2.jogador-nome, h2.computer-nome {
+h2.player-name, h2.computer-name {
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 18px;
+  font-size: 21px;
   line-height: 24px;
 }
 
@@ -141,6 +141,7 @@ span#player-points, span#computer-points {
   .scoreboard {
     flex-direction: column;
   }
+
   #player, #computer {
     width: 100%;
   }

@@ -122,15 +122,18 @@ function jogar(escolha) {
 }
 
 // exibir mão selecionada do usuário
-document.getElementById('jogador-escolha-1').onclick = function () {
-  jogar(1);
-};
-document.getElementById('jogador-escolha-2').onclick = function () {
-  jogar(2);
-};
-document.getElementById('jogador-escolha-3').onclick = function () {
-  jogar(3);
-};
+document.getElementById('jogador-escolha-1')
+  .addEventListener('click', function () {
+    jogar(1);
+  });
+document.getElementById('jogador-escolha-2')
+  .addEventListener('click', function () {
+    jogar(2);
+  });
+document.getElementById('jogador-escolha-3')
+  .addEventListener('click', function () {
+    jogar(3);
+  });
 
 
 while (jogadorNome === "" || jogadorNome === undefined || jogadorNome === null || (jogadorNome !== null && jogadorNome.length > jogadorNomeMaximo)) {

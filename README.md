@@ -3,6 +3,8 @@ A classic game of ROCK, PAPER or SCISSORS made with ES6. Whoever scores 5 points
 
 To download the game, just click on <code>**↓ Code > Download Zip**</code> 😀
 
+Link to play: [https://jokenpo-iota.vercel.app/](https://jokenpo-iota.vercel.app/)
+
 --------------------------------
 
 <p float="left" align="center">
